@@ -10,6 +10,7 @@ if(isset($_POST["valorBusqueda"]))
     $query="SELECT * FROM nomina WHERE id_empleado = '".$_POST["valorBusqueda"]."' ORDER BY id_empleado ASC";
     $query1="SELECT * FROM estatus ORDER BY id_estatus ASC";
     $query2="SELECT * FROM quincena ORDER BY id_quincena ASC";
+    $query3="SELECT area FROM cat_puesto ORDER BY area ASC";
 
     
     
@@ -18,6 +19,7 @@ if(isset($_POST["valorBusqueda"]))
     $result= mysqli_query($conexion, $query);
     $result1= mysqli_query($conexion, $query1);
     $result2= mysqli_query($conexion, $query2);
+    $result23= mysqli_query($conexion, $query3);
  if(mysqli_num_rows($result)> 0)
  {
      $row= mysqli_fetch_array($result);
@@ -35,7 +37,15 @@ if(isset($_POST["valorBusqueda"]))
         <input name="adscripcion" id="adscripcion" type="text" size="35" readonly value = "'.$row['n_puesto'].'"/>
         <br><br>
         <label>&nbsp;Adscripción destino: </label>
-        <input name="adscripcion_d" id="upper" type="text" size="35"/>
+        <select name="adscripcion_d" id="upper">
+            ';
+                while($row3= mysqli_fetch_array($result3)){
+      	         echo '
+                    <option value="'.$row3['area'].'" >'.$row3['area'].'</option>';
+                    }    
+           echo '
+          
+        </select>
         <br><br><label>&nbsp;Quincena de aplicación: </label>
         <select name="quincena" id="quincena">
             ';
