@@ -128,7 +128,7 @@ function buscar_universo() {
 <!--
 <img src="Imagenes/vut.png" width="200"  /> <br />
 -->
-<label class="titulo_centro_mediano">SISTEMA DE NÓMINAS</label>
+<label class="titulo_centro_mediano">SISTEMA DE NÓMINAS | AVC </label>
 <br />
     <div id="cuadro_captura_grande">
         <label>No. Empleado: </label>
