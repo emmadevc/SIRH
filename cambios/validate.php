@@ -14,7 +14,7 @@ if($user != NULL && $pass != NULL)
     
  if($row)
  {
-     echo "<script> window.location.replace('../inicio.php'); </script>";
+     echo "<script> window.location.replace('inicio.php'); </script>";
      $_SESSION['id_user'];
  }
     else 
