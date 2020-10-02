@@ -1,0 +1,75 @@
+@charset "utf-8";
+/* CSS Document */
+
+table, table td, table tr {
+	padding:0px;
+	border-spacing: 0px;
+}
+
+table {
+	border:1px black solid;
+	min-width:300px;
+}
+
+table td {
+	padding:5px;
+}
+
+table tr:first-child td:first-child {
+	border-radius:5px 0px 0px 0px;
+}
+
+table tr:first-child td:last-child {
+	border-radius:0px 5px 0px 0px;
+}
+
+table tr:last-child td:first-child {
+	border-radius:0px 0px 0px 5px;
+}
+
+table tr:last-child td:last-child {
+	border-radius: 0px 0px 5px 0px;
+	text-align: center;
+}
+
+table td:not(:last-child) {
+	border-right:1px #666 solid;
+}
+
+
+table tr:nth-child(2n) {
+	vertical-align:bottom;
+	text-align:center;
+	font-size:12px;
+	background: #f6f6f6;
+	text-transform:uppercase;
+}
+
+table tr:nth-child(2n+1){
+	vertical-align:bottom;	
+	text-align:center;	
+	font-size:12px;	
+	background: #e2e2e2;
+	text-transform:uppercase;	
+}
+
+table.header tr:not(:first-child):hover, table:not(.header) tr:hover {
+	background:#c5c5c5;
+}
+
+table:not(.header) tr {
+	text-align: center;
+}
+
+table.header tr:first-child {
+	font-size:16px;
+	font-weight: 500;
+	color:#fff;
+	background-color: #999;
+	border-bottom:1px #000 solid;
+	text-align:center;	
+}
+
+table.header tr:nth-child(n+2) {
+	text-align: center;
+}

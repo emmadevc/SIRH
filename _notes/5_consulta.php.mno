@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_lista_citasjn" value="name:fcons;datatype:int,name:nombres;datatype:string,name:cita_prog;datatype:string,name:id_cita;datatype:int,name:estatus;datatype:string" />
+</info>

@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_citas" value="name:codigo_cita;datatype:string,name:fecha;datatype:date,name:hora;datatype:string,name:nombre_dia;datatype:string,name:estado;datatype:string,name:tipo_cita;datatype:string,name:estado1;datatype:string,name:asunto;datatype:string,name:paterno;datatype:string,name:materno;datatype:string,name:nombre;datatype:string,name:telefono;datatype:string,name:email;datatype:string,name:fecha_creacion;datatype:timestamp" />
+</info>

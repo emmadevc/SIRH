@@ -1,0 +1,248 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+html, body {
+	margin: 0; padding: 0;
+	font-family: 'Roboto', serif;
+	z-index:1;
+}
+
+.titulo_centro{
+	text-transform: uppercase;
+	font-size: 36px;
+	color: #666666;
+	text-shadow: 0 8px 9px #999 , 0px -2px 1px #fff;
+	font-weight: bold;
+	margin:9px;
+}
+
+.titulo_centro_chico{
+	text-transform: uppercase;
+	font-size: 14px;
+	color: #999999;
+	text-shadow: 0 2px 3px #999 , 0px -2px 1px #fff;
+	font-weight: bold;
+	margin:9px;
+}
+
+.titulo_centro_rojo{
+	text-transform: uppercase;
+	font-size: 36px;
+	color: #FF0000;
+	text-shadow: 0 8px 9px #999 , 0px -2px 1px #fff;
+	font-weight: bold;
+	margin:9px;
+}
+
+.titulo_centro_mediano{
+	text-transform: uppercase;
+	font-size: 20px;
+	color: #F90;
+	font-weight: bold;
+	margin:9px;
+}
+
+.testo_acuse_titulo{
+	text-transform: uppercase;
+	font-size: 12px;
+	color: #000;
+	font-weight: bold;
+	margin:9px;
+}
+
+.titulo_centro_degradado{
+	text-transform: uppercase;
+	font-size: 18px;
+	color: #fff;
+	font-weight: 700;
+	margin: 0px 9px 0px 9px;
+ 	background-image: linear-gradient(-90deg ,#fff, #999);
+	margin: 5px;
+ 	}
+
+.boton_grande_verde{
+	background:#009d1a;	
+	font-size:14px;
+	font-weight:600;
+	font-stretch:ultra-expanded;
+	text-transform:uppercase;
+	color:#FFF;
+	border-radius:15px;
+	border-style:double;
+	border-width:3px;
+	padding:10px;
+	margin:5px;
+}
+.boton_grande_verde:hover{
+	background:#00c400;	
+	font-size:14px;
+	text-transform:uppercase;
+	color:#FFF;
+	border-radius:15px;
+	border-style:double;
+	padding:10px;
+	margin:5px;
+}
+
+
+.boton_buscar{
+	background-image:url(../Imagenes/iconos/search2.png);
+	background-repeat:no-repeat;
+	background-color:transparent;
+	border:none;
+	width:38px;
+	height:38px;
+	opacity:0.5;
+	margin: 0px 5px 0px 5px;
+}
+
+.boton_buscar:hover{
+	background-image:url(../Imagenes/iconos/search2.png);
+	background-repeat:no-repeat;
+	background-color:transparent;
+	border:none;
+	width:38px;
+	height:38px;
+	opacity:1.0;
+	margin: 0px 5px 0px 5px;
+}
+
+.boton_borrar{
+	background-image:url(../Imagenes/iconos/trash.png);
+	background-repeat:no-repeat;
+	background-color:transparent;
+	border:none;
+	width:38px;
+	height:38px;
+	opacity:0.5;
+	margin: 0px 5px 0px 5px;
+}
+
+.boton_borrar:hover{
+	background-image:url(../Imagenes/iconos/trash.png);
+	background-repeat:no-repeat;
+	background-color:transparent;
+	border:none;
+	width:38px;
+	height:38px;
+	opacity:1.0;
+	margin: 0px 5px 0px 5px;
+}
+
+
+.boton_grande_rojo{
+	background:#d80000;	
+	font-size:14px;
+	font-weight:600;
+	font-stretch:ultra-expanded;
+	text-transform:uppercase;
+	color:#FFF;
+	border-radius:15px;
+	border-style:double;
+	border-width:3px;
+	padding:10px;
+	margin:5px;
+}
+.boton_grande_rojo:hover{
+	background:#ff1414;	
+	font-size:14px;
+	text-transform:uppercase;
+	color:#FFF;
+	border-radius:15px;
+	border-style:double;
+	padding:10px;
+	margin:5px;
+}
+
+.caja_texto{
+	font-size:18px;
+	font-weight:700;
+	color:#666;
+	padding:5px;
+	}
+.caja_texto:hover{
+	background-color:#f6f6f6;
+	font-size:18px;
+	font-weight:700;
+	color:#666;
+	padding:5px;	
+	}
+	
+.caja_texto_chica{
+	width:180px;
+	font-size:14px;
+	font-weight:700;
+	color:#666;
+	padding:5px;
+	}
+.caja_texto_chica:hover{
+	background-color:#f6f6f6;
+	font-size:14px;
+	font-weight:700;
+	color:#666;
+	padding:5px;	
+	}
+
+.caja_texto_mediana{
+	width:95%;
+	font-size:16px;
+	font-weight:700;
+	color:#666;
+	padding:5px;
+	}
+.caja_texto_mediana:hover{
+	background-color:#f6f6f6;
+	font-size:16px;
+	font-weight:700;
+	color:#666;
+	padding:5px;	
+	}
+.caja_transparente{
+	font-size:12px;
+	font-weight:700;
+	background-color:transparent;
+	text-align:center;
+	border:none;
+	}	
+.texto_semaforo{
+	font-size:12px;
+	color:#000;
+	text-align:center;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-weight:800;
+}
+
+.caja_texto_cap{
+	font-size:14px;
+	font-weight:700;
+	color:#666;
+	padding:5px;
+	border-color:#ccc;
+	border-style:solid;
+	}
+
+.boton_generico{
+	margin:2px;
+	opacity:0.9;
+}
+.boton_generico:hover{
+	margin:2px;
+	opacity:0.5;
+}
+
+.boton_generico_2{
+	margin:2px;
+	width:99%;
+	opacity:0.9;
+}
+.boton_generico_2:hover{
+	margin:2px;
+	width:99%;
+	opacity:0.6;
+}
+
+.mayus{
+	text-transform:uppercase;
+	}
+

@@ -1,0 +1,110 @@
+@charset "utf-8";
+/* CSS Document */
+
+#upper{
+    text-transform: uppercase;
+}
+html, body {
+	margin: 0; padding: 0;
+	background-color: #66a636;
+	background-image:url(../Imagenes/escudo_transparente.png);
+	background-size:20px;
+	background-repeat:repeat;
+	z-index:1;
+}
+
+hr {
+	border: 1px dashed;
+	border-color:#CCC;
+	height: 0; 
+	width: 88%;
+ }
+
+#encabezado{
+	width:100%;
+	height:70px;
+	background:#66a636;
+	margin: 0px 0px 0px 0px; 
+	position: fixed;
+	display:inline-block;
+	z-index:3;
+}
+
+#logo{
+	display:inline-block;
+	float:left;
+	width:170px;
+	margin: 5px 0px 0px 0px; 
+}
+
+#logo:hover{
+	margin: 5px 0px 0px 0px; 
+	opacity:0.5;
+}
+
+	
+#contenido{
+    width: 100%;
+	background:#fff;
+	margin: 65px 0px 0px 0px;
+	display:inline-block;
+	color: #000;
+}
+
+#pie{
+	width:100%;
+	height:25px;
+	background:#767676;
+	margin: 0px 0px 0px 0px; 
+	position: relative;
+	text-align:center;
+	color:#CCC;
+	font-size:10px;
+	line-height:25px;
+	display:inline-block;
+	z-index:2;
+}
+
+#cuadro_captura{
+	width:300px;
+	border-color:#CCC;
+	border-style:dashed;
+	border-width:1px;
+	margin:5px;
+	text-align:right;
+	display:inline-block;
+}
+
+#cuadro_captura_grande{
+	width:90%;
+	max-width:620px;
+	border-color:#CCC;
+	border-style:dashed;
+	border-width:1px;
+	margin:5px;
+	text-align:center;
+	display:inline-block;
+}
+
+#cuadro_captura_mediano{
+	width:90%;
+	max-width:330px;
+	border-color:#CCC;
+	border-style:dashed;
+	border-width:1px;
+	margin:5px;
+	text-align:center;
+	display:inline-block;
+}
+
+#cuadro_captura_chico{
+	width:90%;
+	max-width:280px;
+	border-color:#CCC;
+	border-style:dashed;
+	border-width:1px;
+	margin:5px;
+	display:inline-block;
+	text-align:right;
+}
+

@@ -1,0 +1,226 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+hr {border: 0; border-top: 1px solid #999; border-bottom: 1px solid #333; height:0;}
+
+.titulo{
+	text-align:center;
+	font-size:18px;
+	font-family:"Lucida Console", Monaco, monospace;
+	text-transform:uppercase;
+	font-weight:900;
+}
+
+
+.titulo_chico{
+	text-align:center;
+	font-size:14px;
+	font-family:"Lucida Console", Monaco, monospace;
+	text-transform:uppercase;
+	font-weight:700;
+}
+
+
+.t_izquierda{
+	text-align:left;
+	font-size:12px;
+	font-family:"Lucida Console", Monaco, monospace;
+	text-transform:capitalize;
+	font-weight:100;
+}
+
+.t_derecha{
+	text-align:right;
+	font-size:12px;
+	font-family:"Lucida Console", Monaco, monospace;
+	text-transform:capitalize;
+	font-weight:100;
+}
+
+.t_centro{
+	text-align:center;
+	font-size:12px;
+	font-family:"Lucida Console", Monaco, monospace;
+	text-transform:capitalize;
+	font-weight:100;
+}
+.c_centro{
+	text-align:center;
+	border:medium;
+	border-color:#666;
+	height:17px;
+	font-size:14px;
+	font-family:"Lucida Console", Monaco, monospace;
+	text-transform:uppercase;
+	background-color:#e2e2e2;
+	font-weight:100;
+}
+
+
+.c_centro:hover{
+	text-align:center;
+	border:medium;
+	border-color:#666;
+	height:17px;
+	font-size:14px;
+	font-family:"Lucida Console", Monaco, monospace;
+	text-transform:uppercase;
+	background-color:#CCCCCC;
+	font-weight:100;
+}
+
+.c_centro_min{
+	text-align:center;
+	border:medium;
+	border-color:#666;
+	height:17px;
+	font-size:14px;
+	font-family:"Lucida Console", Monaco, monospace;
+	text-transform:lowercase;
+	background-color:#e2e2e2;
+	font-weight:100;
+}
+
+
+.c_centro_min:hover{
+	text-align:center;
+	border:medium;
+	border-color:#666;
+	height:17px;
+	font-size:14px;
+	font-family:"Lucida Console", Monaco, monospace;
+	text-transform:lowercase;
+	background-color:#CCCCCC;
+	font-weight:100;
+}
+
+.b_aceptar{
+	background-color:#666;
+	font-size:18px;
+	text-align:center;
+	color:#FFF;
+	border-radius:9px;
+	height27px;
+	}
+
+.b_aceptar:hover{
+	background-color:#CCC;
+	font-size:18px;
+	text-align:center;
+	color:#000;
+	border-radius:9px;
+	height27px;
+	}
+.b_oculto{
+	background-color:#FFF;
+	font-size:18px;
+	text-align:center;
+	color:#FFF;
+	border:none;
+	height27px;
+	}
+.b_buscar{
+	background-image:url(../Imagenes/iconos/search2.png);
+	width:32px;
+	height:32px;
+	border-style:none;
+	background-color:#FFF;
+	opacity:0.7;
+}
+
+.b_buscar:hover{
+	background-image:url(../Imagenes/iconos/search2.png);
+	width:32px;
+	height:32px;
+	border-style:none;
+	background-color:#FFF;
+	opacity:1;
+}
+
+.b_borrar{
+	background-image:url(../Imagenes/iconos/trash.png);
+	width:32px;
+	height:32px;
+	border-style:none;
+	background-color:#FFF;
+	opacity:0.7;
+}
+
+.b_borrar:hover{
+	background-image:url(../Imagenes/iconos/trash.png);
+	width:32px;
+	height:32px;
+	border-style:none;
+	background-color:#FFF;
+	opacity:1;
+}
+
+.b_guardar{
+	background-image:url(../Imagenes/iconos/floppy-disk.png);
+	width:32px;
+	height:32px;
+	border-style:none;	
+	background-color:#FFF;
+	opacity:0.7;
+}
+
+.b_guardar:hover{
+	background-image:url(../Imagenes/iconos/floppy-disk.png);
+	width:32px;
+	height:32px;
+	border-style:none;
+	background-color:#FFF;
+	opacity:1;
+}
+
+.b_imprimir{
+	background-image:url(../Imagenes/iconos/printer.png);
+	width:32px;
+	height:32px;
+	border-style:none;
+	background-color:#FFF;
+	opacity:0.7;
+}
+
+.b_imprimir:hover{
+	background-image:url(../Imagenes/iconos/printer.png);
+	width:32px;
+	height:32px;
+	border-style:none;
+	background-color:#FFF;
+	opacity:1;
+}
+
+.boton_generico{
+	padding:5px;
+	margin:5px;
+	opacity:1;
+	border:solid;
+	border-radius:9px;
+	border-color:#f8bc00;
+}
+
+.boton_generico:hover{
+	padding:5px;
+	margin:5px;
+	opacity:0.7;
+	border:solid;
+	border-radius:9px;
+}
+
+.caja_texto_amarilla{
+	padding:5px;
+	margin:5px;
+	border:solid;
+	border-radius:9px;
+	border-color:#f8bc00;
+}
+
+.t_derecha_ok{
+	text-align:right;
+	font-size:16px;
+	font-family:Tahoma, Geneva, sans-serif;
+	text-transform:capitalize;
+	font-weight:100;
+}
