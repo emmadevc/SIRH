@@ -10,7 +10,7 @@ if(isset($_POST["valorBusqueda"]))
     $query="SELECT * FROM nomina WHERE id_empleado = '".$_POST["valorBusqueda"]."' ORDER BY id_empleado ASC";
     $query1="SELECT * FROM estatus ORDER BY id_estatus ASC";
     $query2="SELECT * FROM quincena ORDER BY id_quincena ASC";
-    $query3="SELECT area FROM cat_puesto ORDER BY area ASC";
+    $query3="SELECT * FROM cat_puesto ORDER BY area";
 
     
     
@@ -19,7 +19,7 @@ if(isset($_POST["valorBusqueda"]))
     $result= mysqli_query($conexion, $query);
     $result1= mysqli_query($conexion, $query1);
     $result2= mysqli_query($conexion, $query2);
-    $result23= mysqli_query($conexion, $query3);
+    $result3= mysqli_query($conexion, $query3);
  if(mysqli_num_rows($result)> 0)
  {
      $row= mysqli_fetch_array($result);
