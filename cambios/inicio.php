@@ -52,15 +52,14 @@ $(document).ready(function() {
     $("#resultadoBusqueda").html();
 });
 
-function buscar_name() {
-    var textoBusqueda = $("input#search_name").val();
-    $("#place").empty();
+function select() {
+    var textoBusqueda = $("select#adscripcion_d").val();
      if (textoBusqueda != "") {
-        $.post("buscar_name.php", {valorBusqueda: textoBusqueda}, function(mensaje) {
-            $("#place").html(mensaje);
+        $.post("select_dir.php", {valorBusqueda: textoBusqueda}, function(mensaje) {
+            $("input#direccion_d").val(mensaje);
          }); 
      } else { 
-        $("#place").html();
+        $("input#direccion_d").val("");
         };
 };
 </script>
