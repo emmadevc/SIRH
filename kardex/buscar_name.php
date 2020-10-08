@@ -7,7 +7,7 @@ if(isset($_POST["valorBusqueda"]))
  /*$query="SELECT * FROM cat_area INNER JOIN directorio WHERE cat_area.id_area=directorio.id_dir and nombre LIKE '%".$search."%' OR cat_area.id_area=directorio.id_dir AND aPaterno LIKE '%".$search."%' OR cat_area.id_area=directorio.id_dir AND aMaterno LIKE '%".$search."%' OR cat_area.id_area=directorio.id_dir AND cargo LIKE '%".$search."%'   ORDER BY jerarquia ASC";*/
     
     
-    $query="SELECT * FROM (SELECT *, CONCAT_WS(' ',nombre, a_paterno, a_materno) as conc FROM nomina) a WHERE conc LIKE '%".$_POST['valorBusqueda']."%'";
+    $query="SELECT * FROM (SELECT *, CONCAT_WS(' ',nombre, a_paterno, a_materno) as conc FROM kardex) a WHERE conc LIKE '%".$_POST['valorBusqueda']."%'";
 
     
     
@@ -19,40 +19,44 @@ if(isset($_POST["valorBusqueda"]))
       echo '
       <table class="header">
       <tr>
-    <td>Plaza</td>
     <td>No. Empleado</td>
     <td>A. Paterno</td>
     <td>A. Materno</td>
     <td>Nombre</td>
-    <td>RFC</td>
-    <td>Curp</td>
-    <td>Nomina</td>
+    <td>T. Nómina</td>
     <td>Universo</td>
-    <td>Nivel</td>
-    <td>N. Puesto</td>
-    <td>Puesto</td>
-    <td>Sindicato</td>
-    <td>Área</td>
+    <td>Nivel Salarial</td>
+    <td>C. Puesto</td>
+    <td>Denominación</td>
+    <td>Sección Sindical</td>
+    <td>Plaza</td>
+    <td>Cargo</td>
     <td>Dirección</td>
+    <td>F. Inicio Cargo</td>
+    <td>F. Fin Cargo</td>
+    <td>Estatus</td>
+    <td>Tipo de Modificación</td>
   </tr>';
       while($row= mysqli_fetch_array($result)){
       	echo '
         <tr>
-        <td bgcolor="#CCCCCC">'.$row['id_plaza'].'</td>
-      <td>'.$row['id_empleado'].'</td>
+        <td bgcolor="#CCCCCC">'.$row['id_empleado'].'</td>
       <td>'.$row['a_paterno'].'</td>
       <td>'.$row['a_materno'].'</td>
       <td>'.$row['nombre'].'</td>
-      <td>'.$row['id_legal'].'</td>
-      <td>'.$row['curp'].'</td>
-      <td>'.$row['id_tipo_nomina'].'</td>
-      <td>'.$row['id_universo'].'</td>
-      <td>'.$row['id_nivel_salarial'].'</td>
+      <td>'.$row['t_nomina'].'</td>
+      <td>'.$row['universo'].'</td>
+      <td>'.$row['niv_salarial'].'</td>
       <td>'.$row['id_puesto'].'</td>
       <td>'.$row['n_puesto'].'</td>
-      <td>'.$row['id_sindicato'].'</td>
-      <td>'.$row['area'].'</td>
-      <td bgcolor="#CCCCCC">'.$row['direccion'].'</td>
+      <td>'.$row['seccion_s'].'</td>
+      <td>'.$row['id_plaza'].'</td>
+      <td>'.$row['cargo'].'</td>
+      <td>'.$row['direccion'].'</td>
+      <td>'.$row['fecha_inicio'].'</td>
+      <td>'.$row['fecha_fin'].'</td>
+      <td>'.$row['estatus'].'</td>
+      <td bgcolor="#CCCCCC">'.$row['tipo_modif'].'</td>
       </tr>';
  }
      echo '</table>';
