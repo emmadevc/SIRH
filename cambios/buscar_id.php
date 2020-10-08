@@ -25,7 +25,6 @@ if(isset($_POST["valorBusqueda"]))
      $row= mysqli_fetch_array($result);
       echo '
       <div id="cuadro_captura_grande">
-        <input hidden name="ide_universo" id="id_universo" type="text" size="10" readonly value = "'.$row['id_universo'].'"/>
         <label>No. Empleado: </label>
         <input name="id_empleado" id="id_empleado" type="text" size="10" readonly value = "'.$row['id_empleado'].'"/>
         <label>&nbsp;Paterno: </label>
@@ -47,6 +46,7 @@ if(isset($_POST["valorBusqueda"]))
            echo '
           
         </select>
+        
         <br><br><label>&nbsp;Quincena de aplicación: </label>
         <select name="quincena" id="quincena">
             ';
