@@ -23,24 +23,24 @@
     $fecha_inicio_p = date("m.d.y");
     echo $fecha_inicio_p;
     
-    $query="INSERT INTO kardex (id_empleado, a_paterno, a_materno, nombre, t_nomina, niv_salarial, universo, id_puesto, n_puesto, seccion_s, id_plaza, cargo, direccion, fecha_inicio, fecha fin, estatus) VALUES ('".$id_empleado."','".$row['a_paterno']."','".$row['a_materno']."','".$row['a_nombre']."','".$row['id_tipo_nomina']."','".$row['id_nivel_salarial']."','".$row['id_universo']."','".$row['id_puesto']."','".$row['n_puesto']."','".$row['id_sindicato']."','".$row['id_plaza']."','".$row['area']."','".$row['direccion']."','".$row['fecha_inicio_p']."','".$fecha_inicio_p."','".$estatus."')";
-    if (mysqli_query($conn, $query)) {
+    $query="INSERT INTO kardex (id_empleado, a_paterno, a_materno, nombre, t_nomina, niv_salarial, universo, id_puesto, n_puesto, seccion_s, id_plaza, cargo, direccion, fecha_inicio, fecha fin, estatus) VALUES ('".$id_empleado."','".$row1['a_paterno']."','".$row1['a_materno']."','".$row1['nombre']."','".$row1['id_tipo_nomina']."','".$row1['id_nivel_salarial']."','".$row1['id_universo']."','".$row1['id_puesto']."','".$row1['n_puesto']."','".$row1['id_sindicato']."','".$row1['id_plaza']."','".$row1['area']."','".$row1['direccion']."','".$row1['fecha_inicio_p']."','".$fecha_inicio_p."','".$estatus."')";
+    if (mysqli_query($conexion, $query)) {
         $query3="UPDATE nomina SET id_universo='".$id_universo."', id_puesto='".id_puesto."', n_puesto='".$n_puesto."', area='".$area."', direccion='".$direccion."', estatus='".$estatus."', fecha_inicio_p='".$fecha_inicio_p."' WHERE id_empleado = '".$id_empleado."'";
-            if (mysqli_query($conn, $query3)) {
+            if (mysqli_query($conexion, $query3)) {
                 echo "<script> 
                 alert('Cambio realizado');
                 window.location.replace('inicio.php'); </script>";
             }
             else{
                 echo "<script> 
-                alert('Ocurrió un error inesperado1');
+                alert('Ocurrio un error inesperado1');
                 window.location.replace('inicio.php'); </script>";
 
             }
     } else {
         echo "<script> 
-                alert('Ocurrió un error inesperado');
-                window.location.replace('inicio.php'); </script>";
+                alert('Ocurrio un error inesperado');
+                 </script>";
     }
 
 ?>
