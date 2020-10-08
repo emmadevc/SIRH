@@ -112,7 +112,7 @@ function buscar_universo() {
 <!-- InstanceBeginEditable name="menu" -->              
     <li><a href="index.php">Salir</a></li>
     <li><a href="inicio.php">Inicio</a></li>
-    <li><a href="cambios/login.php">Cambios</a></li>
+    <li><a href="cambios/inicio.php">Cambios</a></li>
 <!-- InstanceEndEditable -->
 			</ul>
 		</nav>
@@ -137,7 +137,7 @@ function buscar_universo() {
         <label>Nombre: </label>
         <input name="search_name" id="search_name" type="text" size="15" />
         <input name="bus" type="submit" class="" id="bus" value="Buscar" onclick="buscar_name();"/>
-        <br>
+        <br><br>
         <label>Universo: </label>
         <select name="universo" id="universo" onchange="buscar_universo();">
             <option value="" >Seleciona</option>
