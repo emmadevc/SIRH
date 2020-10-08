@@ -25,6 +25,7 @@ if(isset($_POST["valorBusqueda"]))
      $row= mysqli_fetch_array($result);
       echo '
       <div id="cuadro_captura_grande">
+        <input hidden name="ide_universo" id="id_universo" type="text" size="10" readonly value = "'.$row['id_universo'].'"/>
         <label>No. Empleado: </label>
         <input name="id_empleado" id="id_empleado" type="text" size="10" readonly value = "'.$row['id_empleado'].'"/>
         <label>&nbsp;Paterno: </label>
@@ -37,11 +38,11 @@ if(isset($_POST["valorBusqueda"]))
         <input name="adscripcion" id="adscripcion" type="text" size="35" readonly value = "'.$row['n_puesto'].'"/>
         <br><br>
         <label>&nbsp;Adscripción destino: </label>
-        <select name="adscripcion_d" id="upper">
+        <select name="adscripcion_d" id="adscripcion_d" onchange="select();">
             ';
                 while($row3= mysqli_fetch_array($result3)){
       	         echo '
-                    <option value="'.$row3['area'].'" >'.$row3['area'].'</option>';
+                    <option value="'.$row3['id_puesto'].'" >'.$row3['area'].'</option>';
                     }    
            echo '
           
@@ -62,7 +63,7 @@ if(isset($_POST["valorBusqueda"]))
         <input name="direccion" id="adscripcion" type="text" size="10" readonly value = "'.$row['direccion'].'"/>
 
         <label>&nbsp;Dirección destino: </label>
-        <input name="direccion_d" id="upper" type="text" size="10"/>
+        <input name="direccion_d" id="direccion_d" type="text" size="10" readonly/>
         <br><br><label>&nbsp;Estatus empleado: </label>
         <select name="estatus" id="estatus" value = "'.$row['direccion'].'">
             ';
@@ -84,6 +85,7 @@ if(isset($_POST["valorBusqueda"]))
  	echo 'No hay valores';
  }
  }
+
 
 
  
