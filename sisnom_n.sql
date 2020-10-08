@@ -11,7 +11,7 @@
  Target Server Version : 50540
  File Encoding         : 65001
 
- Date: 07/10/2020 18:13:42
+ Date: 07/10/2020 23:31:14
 */
 
 SET NAMES utf8mb4;
@@ -611,9 +611,22 @@ DROP TABLE IF EXISTS `kardex`;
 CREATE TABLE `kardex`  (
   `id_kardex` int(11) NOT NULL AUTO_INCREMENT,
   `id_empleado` int(11) NOT NULL,
-  `fecha_inicio` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `a_paterno` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `a_materno` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `nombre` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `t_nomina` int(255) NULL DEFAULT NULL,
+  `niv_salarial` int(255) NULL DEFAULT NULL,
+  `universo` char(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `id_puesto` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `n_puesto` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `seccion_s` int(255) NULL DEFAULT NULL,
+  `id_plaza` int(255) NULL DEFAULT NULL,
+  `cargo` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `direccion` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `fecha_inicio` date NULL DEFAULT NULL,
+  `fecha_fin` date NULL DEFAULT NULL,
   `etatus` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `fecha_fin` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `tipo_modif` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_kardex`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
@@ -638,8 +651,8 @@ CREATE TABLE `nomina`  (
   `area` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `direccion` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `estatus` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `fecha_ing` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `fecha_inicio_p` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `fecha_ing` date NULL DEFAULT NULL,
+  `fecha_inicio_p` date NULL DEFAULT NULL,
   PRIMARY KEY (`id_empleado`) USING BTREE
 ) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
