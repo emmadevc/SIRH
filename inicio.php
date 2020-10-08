@@ -12,7 +12,12 @@ $query="SELECT * FROM nomina ORDER BY id_empleado ASC";
 $query1="SELECT universo FROM estructura GROUP BY universo";
 $result= mysqli_query($conexion, $query);
 $result1= mysqli_query($conexion, $query1);
-
+$query2="SELECT COUNT(*) AS count FROM nomina";
+$result2= mysqli_query($conexion, $query2);
+$row2= mysqli_fetch_array($result2);
+$count = $row2['count'];
+$paginas = $count/50;
+$paginas=ceil($paginas);
 
 ?>
 
@@ -134,7 +139,7 @@ function buscar_universo() {
         <label>No. Empleado: </label>
         <input name="search_num" id="search_num" type="text" size="10"/>
         <input name="bus" type="submit" class="" id="bus" value="Buscar" onclick="buscar();"/>
-        <label>Nombre: </label>
+        <label> <?php echo $paginas?>Nombre: </label>
         <input name="search_name" id="search_name" type="text" size="15" />
         <input name="bus" type="submit" class="" id="bus" value="Buscar" onclick="buscar_name();"/>
         <br><br>
