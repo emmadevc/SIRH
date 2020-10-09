@@ -10,7 +10,7 @@ if(isset($_POST["valorBusqueda"]))
     $query="SELECT * FROM nomina WHERE id_empleado = '".$_POST["valorBusqueda"]."' ORDER BY id_empleado ASC";
     $query1="SELECT * FROM estatus ORDER BY id_estatus ASC";
     $query2="SELECT * FROM quincena ORDER BY id_quincena ASC";
-    $query3="SELECT * FROM cat_puesto ORDER BY area";
+    $query3="SELECT * FROM cat_puesto GROUP BY direccion";
 
     
     
@@ -33,22 +33,29 @@ if(isset($_POST["valorBusqueda"]))
         <input name="materno" id="materno" type="text" size="10" readonly value = "'.$row['a_materno'].'"/>
         <label>&nbsp;Nombre: </label>
         <input name="nombre" id="nombre" type="text" size="10" readonly value = "'.$row['nombre'].'"/>
+        <br><br><label>&nbsp;Dirección actual: </label>
+        <input name="direccion" id="direccion" type="text" size="10" readonly value = "'.$row['direccion'].'"/>
+
         <br><br><label>&nbsp;Adscripción actual: </label>
-        <input name="adscripcion" id="adscripcion" type="text" size="35" readonly value = "'.$row['n_puesto'].'"/>
+        
+        <input name="area" id="area" type="text" size="50" readonly value = "'.$row['area'].'"/>
         <br><br>
-        <label>&nbsp;Adscripción destino: </label>
-        <select name="adscripcion_d" id="adscripcion_d" onchange="select();">
+        <label>&nbsp;Dirección destino: </label>
+        <select name="direccion_d" id="direccion_d" onchange="select();" required>
+        <option value="">Elige una opción</option>
             ';
                 while($row3= mysqli_fetch_array($result3)){
       	         echo '
-                    <option value="'.$row3['id_puesto'].'" >'.$row3['area'].'</option>';
+                    <option value="'.$row3['direccion'].'" >'.$row3['direccion'].'</option>';
                     }    
            echo '
           
         </select>
+        <div id="list_area"></div>
         
-        <br><br><label>&nbsp;Quincena de aplicación: </label>
-        <select name="quincena" id="quincena">
+        <br><label>&nbsp;Quincena de aplicación: </label>
+        <select name="quincena" id="quincena" required>
+        <option value="">Elige una opción</option>
             ';
                 while($row2= mysqli_fetch_array($result2)){
       	         echo '
@@ -58,14 +65,11 @@ if(isset($_POST["valorBusqueda"]))
           
         </select>
         <label>&nbsp;Folio/Oficio: </label>
-        <input name="oficio" id="upper" type="text" size="5"/>
-        <br><br><label>&nbsp;Dirección actual: </label>
-        <input name="direccion" id="adscripcion" type="text" size="10" readonly value = "'.$row['direccion'].'"/>
+        <input name="oficio" id="oficio" type="text" size="5"/>
 
-        <label>&nbsp;Dirección destino: </label>
-        <input name="direccion_d" id="direccion_d" type="text" size="10" readonly/>
         <br><br><label>&nbsp;Estatus empleado: </label>
-        <select name="estatus" id="estatus" value = "'.$row['direccion'].'">
+        <select name="estatus" id="estatus" required>
+        <option value="">Elige una opción</option>
             ';
                 while($row1= mysqli_fetch_array($result1)){
       	         echo '

@@ -110,7 +110,7 @@ function buscar_universo() {
 <!-- InstanceBeginEditable name="menu" -->              
     <li><a href="../index.php">Salir</a></li>
     <li><a href="../inicio.php">Inicio</a></li>
-    <li><a href="../cambios/login.php">Cambios</a></li>
+    <li><a href="../cambios/inicio.php">Cambios</a></li>
 <!-- InstanceEndEditable -->
 			</ul>
 		</nav>
@@ -154,11 +154,15 @@ function buscar_universo() {
     <td>Denominación</td>
     <td>Sección Sindical</td>
     <td>Plaza</td>
-    <td>Cargo</td>
+    <td>Area</td>
     <td>Dirección</td>
+    <td>Area D.</td>
+    <td>Dirección D.</td>
     <td>F. Inicio Cargo</td>
     <td>F. Fin Cargo</td>
     <td>Estatus</td>
+    <td>Oficio</td>
+    <td>Quincena</td>
     <td>Tipo de Modificación</td>
   </tr>
     
@@ -166,7 +170,7 @@ function buscar_universo() {
     while($row= mysqli_fetch_array($result)){
       	echo '
         <tr>
-      <td bgcolor="#CCCCCC">'.$row['id_empleado'].'</td>
+        <td bgcolor="#CCCCCC">'.$row['id_empleado'].'</td>
       <td>'.$row['a_paterno'].'</td>
       <td>'.$row['a_materno'].'</td>
       <td>'.$row['nombre'].'</td>
@@ -177,11 +181,15 @@ function buscar_universo() {
       <td>'.$row['n_puesto'].'</td>
       <td>'.$row['seccion_s'].'</td>
       <td>'.$row['id_plaza'].'</td>
-      <td>'.$row['cargo'].'</td>
+      <td>'.$row['area'].'</td>
       <td>'.$row['direccion'].'</td>
+      <td>'.$row['area_d'].'</td>
+      <td>'.$row['direccion_d'].'</td>
       <td>'.$row['fecha_inicio'].'</td>
       <td>'.$row['fecha_fin'].'</td>
       <td>'.$row['estatus'].'</td>
+      <td>'.$row['oficio'].'</td>
+      <td>'.$row['quincena'].'</td>
       <td bgcolor="#CCCCCC">'.$row['tipo_modif'].'</td>
       </tr>';
  }    

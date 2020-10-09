@@ -30,11 +30,15 @@ if(isset($_POST["valorBusqueda"]))
     <td>Denominación</td>
     <td>Sección Sindical</td>
     <td>Plaza</td>
-    <td>Cargo</td>
+    <td>Area</td>
     <td>Dirección</td>
+    <td>Area D.</td>
+    <td>Dirección D.</td>
     <td>F. Inicio Cargo</td>
     <td>F. Fin Cargo</td>
     <td>Estatus</td>
+    <td>Oficio</td>
+    <td>Quincena</td>
     <td>Tipo de Modificación</td>
   </tr>';
       while($row= mysqli_fetch_array($result)){
@@ -51,11 +55,15 @@ if(isset($_POST["valorBusqueda"]))
       <td>'.$row['n_puesto'].'</td>
       <td>'.$row['seccion_s'].'</td>
       <td>'.$row['id_plaza'].'</td>
-      <td>'.$row['cargo'].'</td>
+      <td>'.$row['area'].'</td>
       <td>'.$row['direccion'].'</td>
+      <td>'.$row['area_d'].'</td>
+      <td>'.$row['direccion_d'].'</td>
       <td>'.$row['fecha_inicio'].'</td>
       <td>'.$row['fecha_fin'].'</td>
       <td>'.$row['estatus'].'</td>
+      <td>'.$row['oficio'].'</td>
+      <td>'.$row['quincena'].'</td>
       <td bgcolor="#CCCCCC">'.$row['tipo_modif'].'</td>
       </tr>';
  }

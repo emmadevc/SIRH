@@ -32,7 +32,7 @@ if (!isset($_SESSION)) {
 <script type="text/javascript" src="../js/menu.js"></script>
 <script>
 $(document).ready(function() {
-    $("#resultadoBusqueda").html();
+    $select();
 });
 
 function buscar() {
@@ -46,14 +46,27 @@ function buscar() {
         $("#place").html();
         };
 };
+    function select() {
+    var textoBusqueda = $("select#direccion_d").val();
+    $("#list_area").empty();
+     if (textoBusqueda != "") {
+        $.post("select_dir.php", {valorBusqueda: textoBusqueda}, function(mensaje) {
+            $("#list_area").html(mensaje);
+         }); 
+     } else { 
+        $("#list_area").html();
+        };
+};
+
 </script>
+<!--
 <script>
 $(document).ready(function() {
     $("#resultadoBusqueda").html();
 });
 
 function select() {
-    var textoBusqueda = $("select#adscripcion_d").val();
+    var textoBusqueda = $("select#a").val();
      if (textoBusqueda != "") {
         $.post("select_dir.php", {valorBusqueda: textoBusqueda}, function(mensaje) {
             $("input#direccion_d").val(mensaje);
@@ -63,6 +76,7 @@ function select() {
         };
 };
 </script>
+-->
 <!-- InstanceBeginEditable name="head" -->
 <!--
 <link href="css/tabla.css" rel="stylesheet" type="text/css" />
@@ -85,6 +99,7 @@ function select() {
 <!-- InstanceBeginEditable name="menu" -->              
     <li><a href="../index.php">Salir</a></li>
     <li><a href="../inicio.php">Inicio</a></li>
+    <li><a href="../kardex/inicio.php">Historial de Cambios</a></li>
 <!-- InstanceEndEditable -->
 			</ul>
 		</nav>
