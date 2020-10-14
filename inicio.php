@@ -14,13 +14,6 @@ if (!isset($_SESSION)) {
 $conexion = conectar_bd();
 $query1="SELECT universo FROM estructura GROUP BY universo";
 $result1= mysqli_query($conexion, $query1);
-$query2="SELECT COUNT(*) AS count FROM nomina";
-$result2= mysqli_query($conexion, $query2);
-$row2= mysqli_fetch_array($result2);
-$count = $row2['count'];
-$art_pag = 50;
-$paginas = $count/$art_pag;
-$paginas=ceil($paginas);
 
 ?>
 
@@ -164,7 +157,24 @@ function buscar_universo() {
     </div>
 <br />
 <!-- paginacion -->
-    <nav aria-label="Page navigation example">
+    
+<!-- Fin paginacion -->
+        <br>
+
+    <div id="place">
+        
+        <?php 
+        $query2="SELECT COUNT(*) AS count FROM nomina";
+        $result2= mysqli_query($conexion, $query2);
+        $row2= mysqli_fetch_array($result2);
+        $count = $row2['count'];
+        $art_pag = 50;
+        $paginas = $count/$art_pag;
+        $paginas=ceil($paginas);
+        ?>
+        
+        
+        <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
     <li class="page-item <?php echo $_GET['pagina']<=1 ? 'disabled' : '' ?>">
       <a class="page-link" href="inicio.php?pagina=1" tabindex="-1">Inicio</a>
@@ -184,10 +194,6 @@ function buscar_universo() {
   </ul>
         Página <?php echo $_GET['pagina']." de ".$paginas ?>
 </nav>
-<!-- Fin paginacion -->
-        <br>
-
-    <div id="place">
 <table class="header">
   <tr>
     <td>    
@@ -209,6 +215,9 @@ function buscar_universo() {
   </tr>
     
         <?php
+        
+
+        
         $inicio= ($_GET['pagina']-1)*$art_pag;
         $query_limit="SELECT * FROM nomina ORDER BY id_empleado ASC LIMIT ".$inicio.",".$art_pag."";
         $result_limit= mysqli_query($conexion, $query_limit);
