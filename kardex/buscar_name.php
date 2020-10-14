@@ -1,5 +1,5 @@
 <?php
-include ('connections/conecta.php');
+include ('../connections/conecta.php');
 $conexion = conectar_bd();
 
 if(isset($_POST["valorBusqueda"]))
