@@ -41,7 +41,10 @@ $result1= mysqli_query($conexion, $query1);
 
 <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="js/menu.js"></script>
-<script>
+
+
+    
+    <script>
 $(document).ready(function() {
     $("#resultadoBusqueda").html();
 });
@@ -139,7 +142,7 @@ function buscar_universo() {
         <input name="bus" type="submit" class="" id="bus" value="Buscar" onclick="buscar();"/>
         <label>Nombre: </label>
         <input name="search_name" id="search_name" type="text" size="15" />
-        <input name="bus" type="submit" class="" id="bus" value="Buscar" onclick="buscar_name();"/>
+        <input name="bus_name" type="submit" class="" id="bus_name" value="Buscar" onclick="buscar_name();"/>
         <br><br>
         <label>Universo: </label>
         <select name="universo" id="universo" onchange="buscar_universo();">
@@ -260,4 +263,23 @@ function buscar_universo() {
 2020 - Alcaldia Venustiano Carranza
 </div>
 </body>
+        <script>
+var input = document.getElementById("search_num");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("bus").click();
+  }
+});
+</script>
+    <script>
+var input = document.getElementById("search_name");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("bus_name").click();
+  }
+});
+</script>
+
 <!-- InstanceEnd --></html>
