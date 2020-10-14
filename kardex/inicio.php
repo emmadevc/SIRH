@@ -196,8 +196,8 @@ function buscar_universo() {
     <td>Dirección</td>
     <td>Area D.</td>
     <td>Dirección D.</td>
-    <td>F. Inicio Cargo</td>
-    <td>F. Fin Cargo</td>
+    <td>F. Inicio Adscripción</td>
+    <td>F. Fin Adscripción</td>
     <td>Estatus</td>
     <td>Oficio</td>
     <td>Quincena</td>
