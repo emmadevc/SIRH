@@ -12,16 +12,6 @@ if (!isset($_SESSION)) {
 }
 
 $conexion = conectar_bd();
-$query="SELECT * FROM kardex ORDER BY fecha_fin DESC";
-$result= mysqli_query($conexion, $query);
-
-$query2="SELECT COUNT(*) AS count FROM kardex";
-$result2= mysqli_query($conexion, $query2);
-$row2= mysqli_fetch_array($result2);
-$count = $row2['count'];
-$art_pag = 5;
-$paginas = $count/$art_pag;
-$paginas=ceil($paginas);
 
 ?>
 
@@ -153,7 +143,20 @@ function buscar_universo() {
         
     </div>
 <br />
-    <!-- paginacion -->
+        <br>
+
+<?php
+    $query2="SELECT COUNT(*) AS count FROM kardex";
+        $result2= mysqli_query($conexion, $query2);
+        $row2= mysqli_fetch_array($result2);
+        $count = $row2['count'];
+        $art_pag = 5;
+        $paginas = $count/$art_pag;
+        $paginas=ceil($paginas);
+
+    ?>
+    <div id="place">
+            <!-- paginacion -->
     <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
     <li class="page-item <?php echo $_GET['pagina']<=1 ? 'disabled' : '' ?>">
@@ -175,10 +178,8 @@ function buscar_universo() {
         Página <?php echo $_GET['pagina']." de ".$paginas ?>
 </nav>
 <!-- Fin paginacion -->
-        <br>
 
-
-    <div id="place">
+        
 <table class="header">
   <tr>
     <td>No. Empleado</td>
@@ -205,6 +206,7 @@ function buscar_universo() {
   </tr>
     
         <?php
+        
         $inicio= ($_GET['pagina']-1)*$art_pag;
         $query="SELECT * FROM kardex ORDER BY fecha_fin DESC LIMIT ".$inicio.",".$art_pag;
         $result= mysqli_query($conexion, $query);
