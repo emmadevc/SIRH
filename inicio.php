@@ -1,5 +1,9 @@
 <?php 
 include ('connections/conecta.php');
+    if(!$_GET){
+        header('Location:inicio.php?pagina=1');
+    }
+
 ?>
 
 <?php
@@ -16,7 +20,8 @@ $query2="SELECT COUNT(*) AS count FROM nomina";
 $result2= mysqli_query($conexion, $query2);
 $row2= mysqli_fetch_array($result2);
 $count = $row2['count'];
-$paginas = $count/50;
+$art_pag = 50;
+$paginas = $count/$art_pag;
 $paginas=ceil($paginas);
 
 ?>
@@ -40,6 +45,8 @@ $paginas=ceil($paginas);
 <link href="css/texto.css" rel="stylesheet" type="text/css" />
 <link href="css/fonts.css" rel="stylesheet" type="text/css" />
 <link href="css/menu.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<script src="js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
 <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="js/menu.js"></script>
@@ -139,7 +146,7 @@ function buscar_universo() {
         <label>No. Empleado: </label>
         <input name="search_num" id="search_num" type="text" size="10"/>
         <input name="bus" type="submit" class="" id="bus" value="Buscar" onclick="buscar();"/>
-        <label> <?php echo $paginas?>Nombre: </label>
+        <label>Nombre: </label>
         <input name="search_name" id="search_name" type="text" size="15" />
         <input name="bus" type="submit" class="" id="bus" value="Buscar" onclick="buscar_name();"/>
         <br><br>
@@ -158,10 +165,35 @@ function buscar_universo() {
         
     </div>
 <br />
+<!-- paginacion -->
+    <nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item <?php echo $_GET['pagina']<=1 ? 'disabled' : '' ?>">
+      <a class="page-link" href="inicio.php?pagina=1" tabindex="-1">Inicio</a>
+    </li>
+    <li class="page-item <?php echo $_GET['pagina']<=1 ? 'disabled' : '' ?>">
+      <a class="page-link" href="inicio.php?pagina=<?php echo $_GET['pagina']-1 ?>" tabindex="-1">Anterior</a>
+    </li>
+      <?php for($i=0;$i<$paginas;$i++):?>
+    <li hidden class="page-item <?php echo $_GET['pagina']==$i+1 ? 'active' : '' ?>"><a class="page-link" href="inicio.php?pagina=<?php echo $i+1 ?>"><?php echo $i+1 ?></a></li>
+    <?php endfor?>
+      <li class="page-item <?php echo $_GET['pagina']>=$paginas ? 'disabled' : '' ?>">  
+      <a class="page-link" href="inicio.php?pagina=<?php echo $_GET['pagina']+1 ?>">Siguiente</a>
+    </li>
+      <li class="page-item <?php echo $_GET['pagina']>=$paginas ? 'disabled' : '' ?>">  
+      <a class="page-link" href="inicio.php?pagina=<?php echo $paginas ?>">Fin</a>
+    </li>
+  </ul>
+        Página <?php echo $_GET['pagina']." de ".$paginas ?>
+</nav>
+<!-- Fin paginacion -->
+        <br>
+
     <div id="place">
 <table class="header">
   <tr>
-    <td>Plaza</td>
+    <td>    
+</td>
     <td>No. Empleado</td>
     <td>A. Paterno</td>
     <td>A. Materno</td>
@@ -179,24 +211,28 @@ function buscar_universo() {
   </tr>
     
         <?php
-    while($row= mysqli_fetch_array($result)){
+        $inicio= ($_GET['pagina']-1)*$art_pag;
+        $query_limit="SELECT * FROM nomina ORDER BY id_empleado ASC LIMIT ".$inicio.",".$art_pag."";
+        $result_limit= mysqli_query($conexion, $query_limit);
+
+    while($row_limit= mysqli_fetch_array($result_limit)){
       	echo '
         <tr>
-        <td bgcolor="#CCCCCC">'.$row['id_plaza'].'</td>
-      <td>'.$row['id_empleado'].'</td>
-      <td>'.$row['a_paterno'].'</td>
-      <td>'.$row['a_materno'].'</td>
-      <td>'.$row['nombre'].'</td>
-      <td>'.$row['id_legal'].'</td>
-      <td>'.$row['curp'].'</td>
-      <td>'.$row['id_tipo_nomina'].'</td>
-      <td>'.$row['id_universo'].'</td>
-      <td>'.$row['id_nivel_salarial'].'</td>
-      <td>'.$row['id_puesto'].'</td>
-      <td>'.$row['n_puesto'].'</td>
-      <td>'.$row['id_sindicato'].'</td>
-      <td>'.$row['area'].'</td>
-      <td bgcolor="#CCCCCC">'.$row['direccion'].'</td>
+        <td bgcolor="#CCCCCC">'.$row_limit['id_plaza'].'</td>
+      <td>'.$row_limit['id_empleado'].'</td>
+      <td>'.$row_limit['a_paterno'].'</td>
+      <td>'.$row_limit['a_materno'].'</td>
+      <td>'.$row_limit['nombre'].'</td>
+      <td>'.$row_limit['id_legal'].'</td>
+      <td>'.$row_limit['curp'].'</td>
+      <td>'.$row_limit['id_tipo_nomina'].'</td>
+      <td>'.$row_limit['id_universo'].'</td>
+      <td>'.$row_limit['id_nivel_salarial'].'</td>
+      <td>'.$row_limit['id_puesto'].'</td>
+      <td>'.$row_limit['n_puesto'].'</td>
+      <td>'.$row_limit['id_sindicato'].'</td>
+      <td>'.$row_limit['area'].'</td>
+      <td bgcolor="#CCCCCC">'.$row_limit['direccion'].'</td>
       </tr>';
  }    
         ?>
@@ -206,23 +242,7 @@ function buscar_universo() {
 </table>
         </div>
 <br />
-<table border="0" >
-  <tr>
-    <td>
-        <a href=""><img src="First.gif" /></a>
-       </td>
-    <td>
-        <a href=""><img src="Previous.gif" /></a>
-        </td>
-    <td>
-        <a href=""><img src="Next.gif" /></a>
-       </td>
-    <td>
-        <a href=""><img src="Last.gif" /></a>
-        </td>
-  </tr>
-</table>
-<br />
+    <br />
  <br />
 
 <!-- InstanceEndEditable -->
