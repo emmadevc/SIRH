@@ -1,5 +1,9 @@
 <?php 
 include ('../connections/conecta.php');
+    if(!$_GET){
+        header('Location:inicio.php?pagina=1');
+    }
+
 ?>
 
 <?php
@@ -8,9 +12,16 @@ if (!isset($_SESSION)) {
 }
 
 $conexion = conectar_bd();
-$query="SELECT * FROM kardex ORDER BY fecha_fin ASC";
+$query="SELECT * FROM kardex ORDER BY fecha_fin DESC";
 $result= mysqli_query($conexion, $query);
 
+$query2="SELECT COUNT(*) AS count FROM kardex";
+$result2= mysqli_query($conexion, $query2);
+$row2= mysqli_fetch_array($result2);
+$count = $row2['count'];
+$art_pag = 5;
+$paginas = $count/$art_pag;
+$paginas=ceil($paginas);
 
 ?>
 
@@ -33,6 +44,8 @@ $result= mysqli_query($conexion, $query);
 <link href="../css/texto.css" rel="stylesheet" type="text/css" />
 <link href="../css/fonts.css" rel="stylesheet" type="text/css" />
 <link href="../css/menu.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<script src="../js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
 <script type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="../js/menu.js"></script>
@@ -140,6 +153,31 @@ function buscar_universo() {
         
     </div>
 <br />
+    <!-- paginacion -->
+    <nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item <?php echo $_GET['pagina']<=1 ? 'disabled' : '' ?>">
+      <a class="page-link" href="inicio.php?pagina=1" tabindex="-1">Inicio</a>
+    </li>
+    <li class="page-item <?php echo $_GET['pagina']<=1 ? 'disabled' : '' ?>">
+      <a class="page-link" href="inicio.php?pagina=<?php echo $_GET['pagina']-1 ?>" tabindex="-1">Anterior</a>
+    </li>
+      <?php for($i=0;$i<$paginas;$i++):?>
+    <li hidden class="page-item <?php echo $_GET['pagina']==$i+1 ? 'active' : '' ?>"><a class="page-link" href="inicio.php?pagina=<?php echo $i+1 ?>"><?php echo $i+1 ?></a></li>
+    <?php endfor?>
+      <li class="page-item <?php echo $_GET['pagina']>=$paginas ? 'disabled' : '' ?>">  
+      <a class="page-link" href="inicio.php?pagina=<?php echo $_GET['pagina']+1 ?>">Siguiente</a>
+    </li>
+      <li class="page-item <?php echo $_GET['pagina']>=$paginas ? 'disabled' : '' ?>">  
+      <a class="page-link" href="inicio.php?pagina=<?php echo $paginas ?>">Fin</a>
+    </li>
+  </ul>
+        Página <?php echo $_GET['pagina']." de ".$paginas ?>
+</nav>
+<!-- Fin paginacion -->
+        <br>
+
+
     <div id="place">
 <table class="header">
   <tr>
@@ -167,6 +205,10 @@ function buscar_universo() {
   </tr>
     
         <?php
+        $inicio= ($_GET['pagina']-1)*$art_pag;
+        $query="SELECT * FROM kardex ORDER BY fecha_fin DESC LIMIT ".$inicio.",".$art_pag;
+        $result= mysqli_query($conexion, $query);
+
     while($row= mysqli_fetch_array($result)){
       	echo '
         <tr>
@@ -200,22 +242,6 @@ function buscar_universo() {
 </table>
         </div>
 <br />
-<table border="0" >
-  <tr>
-    <td>
-        <a href=""><img src="First.gif" /></a>
-       </td>
-    <td>
-        <a href=""><img src="Previous.gif" /></a>
-        </td>
-    <td>
-        <a href=""><img src="Next.gif" /></a>
-       </td>
-    <td>
-        <a href=""><img src="Last.gif" /></a>
-        </td>
-  </tr>
-</table>
 <br />
  <br />
 
