@@ -12,9 +12,7 @@ if (!isset($_SESSION)) {
 }
 
 $conexion = conectar_bd();
-$query="SELECT * FROM nomina ORDER BY id_empleado ASC";
 $query1="SELECT universo FROM estructura GROUP BY universo";
-$result= mysqli_query($conexion, $query);
 $result1= mysqli_query($conexion, $query1);
 $query2="SELECT COUNT(*) AS count FROM nomina";
 $result2= mysqli_query($conexion, $query2);
