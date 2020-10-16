@@ -149,4 +149,14 @@ function select() {
 2020 - Alcaldia Venustiano Carranza
 </div>
 </body>
+            <script>
+var input = document.getElementById("search_num");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("bus").click();
+  }
+});
+</script>
+
 <!-- InstanceEnd --></html>
