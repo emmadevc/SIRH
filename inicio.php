@@ -80,6 +80,7 @@ function buscar_name() {
         };
 };
 </script>
+<!--
 <script>
 $(document).ready(function() {
     $("#resultadoBusqueda").html();
@@ -97,6 +98,7 @@ function buscar_universo() {
         };
 };
 </script>
+-->
                     
 <!-- InstanceBeginEditable name="head" -->
 <!--
@@ -145,18 +147,20 @@ function buscar_universo() {
         <label>Nombre: </label>
         <input name="search_name" id="search_name" type="text" size="15" />
         <input name="bus_name" type="submit" class="" id="bus_name" value="Buscar" onclick="buscar_name();"/>
+<!--
         <br><br>
         <label>Universo: </label>
         <select name="universo" id="universo" onchange="buscar_universo();">
             <option value="" >Seleciona</option>
             <?php
-    while($row1= mysqli_fetch_array($result1)){
-      	echo '
-        <option value="'.$row1['universo'].'" >'.$row1['universo'].'</option>';
- }    
+    //while($row1= mysqli_fetch_array($result1)){
+     // 	echo '
+      //  <option value="'.$row1['universo'].'" >'.$row1['universo'].'</option>';
+ //}    
         ?>
           
         </select>
+-->
         <br />
         
     </div>
