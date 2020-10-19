@@ -99,7 +99,7 @@ function select() {
 <!-- InstanceBeginEditable name="menu" -->              
     <li><a href="../index.php">Salir</a></li>
     <li><a href="../inicio.php">Inicio</a></li>
-    <li><a href="../kardex/inicio.php">Historial de Cambios</a></li>
+    <li><a href="../historial_ads/inicio.php">Historial de Cambios</a></li>
 <!-- InstanceEndEditable -->
 			</ul>
 		</nav>
