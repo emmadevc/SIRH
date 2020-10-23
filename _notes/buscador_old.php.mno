@@ -1,4 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<info>
-	<infoitem key="UD_cat_vu" value="name:id_tramite;datatype:int,name:area;datatype:string,name:nombre_tramite;datatype:string,name:tipo;datatype:string,name:tiempo;datatype:int,name:restriccion;datatype:int" />
-</info>

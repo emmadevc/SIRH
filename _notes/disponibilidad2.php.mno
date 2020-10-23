@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<info>
-	<infoitem key="UD_fecha_disp" value="name:fecha_prog;datatype:string" />
-	<infoitem key="UD_hora_disp" value="name:hora_prog;datatype:string" />
-	<infoitem key="UD_codigo_cita" value="name:id_cita;datatype:int,name:fcons;datatype:int,name:fecha_prog;datatype:string,name:hora_prog;datatype:string,name:cita_prog;datatype:string,name:fecha_creacion;datatype:timestamp,name:estatus;datatype:string,name:estado;datatype:string" />
-</info>
