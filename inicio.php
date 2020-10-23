@@ -1,6 +1,7 @@
 <?php 
 include ('connections/conecta.php');
-    if(!$_GET){
+//hacer que la pagina inicie en pagina 1    
+if(!$_GET){
         header('Location:inicio.php?pagina=1');
     }
 
@@ -173,6 +174,7 @@ function buscar_universo() {
     <div id="place">
         
         <?php 
+        // codigo para hacer el select por numero de articulos para cada pagina
         $query2="SELECT COUNT(*) AS count FROM nomina";
         $result2= mysqli_query($conexion, $query2);
         $row2= mysqli_fetch_array($result2);
