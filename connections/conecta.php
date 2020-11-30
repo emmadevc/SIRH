@@ -1,6 +1,6 @@
 <?php
 function conectar_bd(){
-$server='187.237.244.227';
+$server='10.42.0.222';
 $bd='sisnom_n';    
 $usuario='root';
 $password ='pgm3satvc';

@@ -210,7 +210,7 @@ function buscar_universo() {
         <?php
         
         $inicio= ($_GET['pagina']-1)*$art_pag;
-        $query="SELECT * FROM kardex ORDER BY id_kardex ASC LIMIT ".$inicio.",".$art_pag;
+        $query="SELECT * FROM kardex ORDER BY id_kardex DESC LIMIT ".$inicio.",".$art_pag;
         $result= mysqli_query($conexion, $query);
 
     while($row= mysqli_fetch_array($result)){

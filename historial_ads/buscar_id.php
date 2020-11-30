@@ -7,7 +7,7 @@ if(isset($_POST["valorBusqueda"]))
  /*$query="SELECT * FROM cat_area INNER JOIN directorio WHERE cat_area.id_area=directorio.id_dir and nombre LIKE '%".$search."%' OR cat_area.id_area=directorio.id_dir AND aPaterno LIKE '%".$search."%' OR cat_area.id_area=directorio.id_dir AND aMaterno LIKE '%".$search."%' OR cat_area.id_area=directorio.id_dir AND cargo LIKE '%".$search."%'   ORDER BY jerarquia ASC";*/
     
     
-    $query="SELECT * FROM kardex WHERE id_empleado LIKE '%".$_POST["valorBusqueda"]."%' ORDER BY id_empleado ASC";
+    $query="SELECT * FROM kardex WHERE id_empleado LIKE '%".$_POST["valorBusqueda"]."%' ORDER BY id_empleado DESC";
 
     
     
