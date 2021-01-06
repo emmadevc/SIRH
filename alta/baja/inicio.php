@@ -12,16 +12,15 @@
 <title>SISNOM</title>
 <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Roboto">
 <!-- InstanceEndEditable -->
-<link rel="shortcut icon"href="../Imagenes/lvc.ico"/>
+<link rel="shortcut icon"href="../../Imagenes/lvc.ico"/>
 
-<link href="../css/plantilla.css" rel="stylesheet" type="text/css"/>
-<link href="../css/texto.css" rel="stylesheet" type="text/css" />
-<link href="../css/fonts.css" rel="stylesheet" type="text/css" />
-<link href="../css/menu.css" rel="stylesheet" type="text/css" />
-<link href="../css/boton.css" rel="stylesheet" type="text/css" />
+<link href="../../css/plantilla.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/texto.css" rel="stylesheet" type="text/css" />
+<link href="../../css/fonts.css" rel="stylesheet" type="text/css" />
+<link href="../../css/menu.css" rel="stylesheet" type="text/css" />
 
-<script type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="../js/menu.js"></script>
+<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../../js/menu.js"></script>
 <script>
 $(document).ready(function() {
     $select();
@@ -73,14 +72,14 @@ function select() {
 <!--
 <link href="css/tabla.css" rel="stylesheet" type="text/css" />
 -->
-<link href="../css/tabla.css" rel="stylesheet" type="text/css" />
+<link href="../../css/tabla.css" rel="stylesheet" type="text/css" />
 <!-- InstanceEndEditable -->
 
 </head>
 <body>
 
 <div id="encabezado">
-<div id="logo"> <a href="#"><img src="../Imagenes/logo-vc.png" width="99%"/></a>
+<div id="logo"> <a href="#"><img src="../../Imagenes/logo-vc.png" width="99%"/></a>
 </div>
     <header>
 		<div class="menu_bar">
@@ -89,9 +88,9 @@ function select() {
 		<nav>
 			<ul>
 <!-- InstanceBeginEditable name="menu" -->              
-    <li><a href="../index.php">Salir</a></li>
-    <li><a href="../inicio.php">Inicio</a></li>
-    <li><a href="historial/inicio.php">Historial de Altas y Bajas</a></li>
+    <li><a href="../../logout.php">Salir</a></li>
+    <li><a href="../../inicio.php">Inicio</a></li>
+    <li><a href="../historial/inicio.php">Historial</a></li>
 <!-- InstanceEndEditable -->
 			</ul>
 		</nav>
@@ -109,11 +108,11 @@ function select() {
 -->
 <label class="titulo_centro_mediano">SISTEMA DE NÓMINAS</label>
 <br />
-    <div id="cuadro_captura_grande"><br><br>
-    <a class="button type1" href="alta/inicio.php">Alta</a><br><br><br><br>
-    <a class="button type1" href="baja/inicio.php">Baja</a><br>
-
-       <!--
+    <div id="cuadro_captura_grande">
+        <label>No. Empleado: </label>
+        <input name="search_num" id="search_num" type="text" size="10"/>
+        <input name="bus" type="submit" class="" id="bus" value="Buscar" onclick="buscar();"/>
+<!--
         <label>Nombre: </label>
         <input name="search_name" id="search_name" type="text" size="15" />
         <input name="bus" type="submit" class="" id="bus" value="Buscar" onclick="buscar_name();"/>

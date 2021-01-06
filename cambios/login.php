@@ -39,8 +39,7 @@
 		<nav>
 			<ul>
 <!-- InstanceBeginEditable name="menu" -->              
-    <li><a href="../index.php">Salir</a></li>
-    <li><a href="../inicio.php">Inicio</a></li>
+    <li><a href="inicio.php">Inicio</a></li>
 <!-- InstanceEndEditable -->
 			</ul>
 		</nav>
@@ -61,9 +60,9 @@
     <div id="box">
         <form action="validate.php" method="post">
         <label>Usuario: </label>
-        <input name="user" id="user" type="text" size="10"/>
+        <input name="user" id="user" type="text" size="10" required/>
         <label>Contraseña: </label>
-        <input name="pass" id="pass" type="password" size="15" /><br><br>
+        <input name="pass" id="pass" type="password" size="15" required/><br><br>
         <input name="login" type="submit" class="" id="login" value="Iniciar Sesión" />
         <br>
         <br />

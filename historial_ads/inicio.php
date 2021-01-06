@@ -1,4 +1,9 @@
 <?php 
+session_start();
+if(isset($_SESSION['level'])){
+
+if($_SESSION['level']==2||$_SESSION['level']==1){
+
 include ('../connections/conecta.php');
     if(!$_GET){
         header('Location:inicio.php?pagina=1');
@@ -113,7 +118,7 @@ function buscar_universo() {
 		<nav>
 			<ul>
 <!-- InstanceBeginEditable name="menu" -->              
-    <li><a href="../index.php">Salir</a></li>
+    <li><a href="../logout.php">Salir</a></li>
     <li><a href="../inicio.php">Inicio</a></li>
     <li><a href="../cambios/inicio.php">Cambios</a></li>
 <!-- InstanceEndEditable -->
@@ -277,3 +282,15 @@ input.addEventListener("keyup", function(event) {
 </script>
 
 <!-- InstanceEnd --></html>
+<?php 
+}
+else{
+    echo "<script> 
+    window.location.replace('../cambios/login.php'); </script>";
+}
+}
+else
+echo "<script> 
+window.location.replace('login.php'); </script>";
+
+?>

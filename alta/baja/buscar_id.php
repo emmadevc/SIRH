@@ -1,5 +1,5 @@
 <?php
-include ('../connections/conecta.php');
+include ('../../connections/conecta.php');
 $conexion = conectar_bd();
 
 if(isset($_POST["valorBusqueda"]))
@@ -33,24 +33,13 @@ if(isset($_POST["valorBusqueda"]))
         <input name="materno" id="materno" type="text" size="10" readonly value = "'.$row['a_materno'].'"/>
         <label>&nbsp;Nombre: </label>
         <input name="nombre" id="nombre" type="text" size="10" readonly value = "'.$row['nombre'].'"/>
-        <br><br><label>&nbsp;Dirección actual: </label>
+        <br><br><label>&nbsp;Dirección: </label>
         <input name="direccion" id="direccion" type="text" size="10" readonly value = "'.$row['direccion'].'"/>
 
-        <br><br><label>&nbsp;Adscripción actual: </label>
+        <br><br><label>&nbsp;Adscripción: </label>
         
         <input name="area" id="area" type="text" size="50" readonly value = "'.$row['area'].'"/>
         <br><br>
-        <label>&nbsp;Dirección destino: </label>
-        <select name="direccion_d" id="direccion_d" onchange="select();" required>
-        <option value="">Elige una opción</option>
-            ';
-                while($row3= mysqli_fetch_array($result3)){
-      	         echo '
-                    <option value="'.$row3['direccion'].'" >'.$row3['direccion'].'</option>';
-                    }    
-           echo '
-          
-        </select>
         <div id="list_area"></div>
         
         <br><label>&nbsp;Quincena de aplicación: </label>
@@ -67,7 +56,7 @@ if(isset($_POST["valorBusqueda"]))
         <label>&nbsp;Folio/Oficio: </label>
         <input name="oficio" id="oficio" type="text" size="5"/>
 
-        <br><br><label>&nbsp;Estatus empleado: </label>
+        <br><br><label>&nbsp;Concepto de baja: </label>
         <select name="estatus" id="estatus" required>
         <option value="">Elige una opción</option>
             ';

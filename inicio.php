@@ -123,7 +123,8 @@ function buscar_universo() {
 <!-- InstanceBeginEditable name="menu" -->              
     <li><a href="index.php">Salir</a></li>
     <li><a href="inicio.php">Inicio</a></li>
-    <li><a href="cambios/inicio.php">Cambios</a></li>
+    <li><a href="cambios/login.php">Cambios</a></li>
+    <li><a href="alta/login.php">Altas y Bajas</a></li>
 <!-- InstanceEndEditable -->
 			</ul>
 		</nav>
