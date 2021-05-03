@@ -121,10 +121,10 @@ function buscar_universo() {
 		<nav>
 			<ul>
 <!-- InstanceBeginEditable name="menu" -->              
-    <li><a href="index.php">Salir</a></li>
     <li><a href="inicio.php">Inicio</a></li>
     <li><a href="cambios/login.php">Cambios</a></li>
     <li><a href="alta/login.php">Altas y Bajas</a></li>
+    <li><a href="views/login.php">Plantillas Alcaldía</a></li>
 <!-- InstanceEndEditable -->
 			</ul>
 		</nav>
@@ -208,15 +208,12 @@ function buscar_universo() {
 </nav>
 <table class="header">
   <tr>
-    <td>    
-</td>
     <td>No. Empleado</td>
     <td>A. Paterno</td>
     <td>A. Materno</td>
     <td>Nombre</td>
-    <td>RFC</td>
-    <td>Curp</td>
     <td>Nomina</td>
+    <td>No. Plaza</td>
     <td>Universo</td>
     <td>Nivel</td>
     <td>N. Puesto</td>
@@ -237,14 +234,12 @@ function buscar_universo() {
     while($row_limit= mysqli_fetch_array($result_limit)){
       	echo '
         <tr>
-        <td bgcolor="#CCCCCC">'.$row_limit['id_plaza'].'</td>
       <td>'.$row_limit['id_empleado'].'</td>
       <td>'.$row_limit['a_paterno'].'</td>
       <td>'.$row_limit['a_materno'].'</td>
       <td>'.$row_limit['nombre'].'</td>
-      <td>'.$row_limit['id_legal'].'</td>
-      <td>'.$row_limit['curp'].'</td>
       <td>'.$row_limit['id_tipo_nomina'].'</td>
+      <td bgcolor="#CCCCCC">'.$row_limit['id_plaza'].'</td>
       <td>'.$row_limit['id_universo'].'</td>
       <td>'.$row_limit['id_nivel_salarial'].'</td>
       <td>'.$row_limit['id_puesto'].'</td>

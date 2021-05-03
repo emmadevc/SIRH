@@ -24,8 +24,6 @@ if(isset($_POST["valorBusqueda"]))
     <td>A. Paterno</td>
     <td>A. Materno</td>
     <td>Nombre</td>
-    <td>RFC</td>
-    <td>Curp</td>
     <td>Nomina</td>
     <td>Universo</td>
     <td>Nivel</td>
@@ -43,8 +41,6 @@ if(isset($_POST["valorBusqueda"]))
       <td>'.$row['a_paterno'].'</td>
       <td>'.$row['a_materno'].'</td>
       <td>'.$row['nombre'].'</td>
-      <td>'.$row['id_legal'].'</td>
-      <td>'.$row['curp'].'</td>
       <td>'.$row['id_tipo_nomina'].'</td>
       <td>'.$row['id_universo'].'</td>
       <td>'.$row['id_nivel_salarial'].'</td>

@@ -10,7 +10,7 @@ if(isset($_POST["valorBusqueda"]))
     $query="SELECT * FROM nomina WHERE id_empleado = '".$_POST["valorBusqueda"]."' ORDER BY id_empleado ASC";
     $query1="SELECT * FROM estatus ORDER BY id_estatus ASC";
     $query2="SELECT * FROM quincena ORDER BY id_quincena ASC";
-    $query3="SELECT * FROM cat_puesto GROUP BY direccion";
+    $query3="SELECT * FROM cat_baja GROUP BY id_baja ASC";
 
     
     
@@ -40,9 +40,8 @@ if(isset($_POST["valorBusqueda"]))
         
         <input name="area" id="area" type="text" size="50" readonly value = "'.$row['area'].'"/>
         <br><br>
-        <div id="list_area"></div>
         
-        <br><label>&nbsp;Quincena de aplicación: </label>
+        <label>&nbsp;Quincena de aplicación: </label>
         <select name="quincena" id="quincena" required>
         <option value="">Elige una opción</option>
             ';
@@ -53,16 +52,17 @@ if(isset($_POST["valorBusqueda"]))
            echo '
           
         </select>
-        <label>&nbsp;Folio/Oficio: </label>
-        <input name="oficio" id="oficio" type="text" size="5"/>
+        <br><br>
+        <label>&nbsp;Fecha de Baja: </label>
+        <input name="oficio" id="oficio" type="text" size="25"/>
 
         <br><br><label>&nbsp;Concepto de baja: </label>
-        <select name="estatus" id="estatus" required>
+        <select name="baja" id="baja" required>
         <option value="">Elige una opción</option>
             ';
-                while($row1= mysqli_fetch_array($result1)){
+                while($row3= mysqli_fetch_array($result3)){
       	         echo '
-                    <option value="'.$row1['codigo'].'" >'.$row1['estatus'].'</option>';
+                    <option value="'.$row3['id_baja'].'" >'.$row3['descripcion'].'</option>';
                     }    
            echo '
           
@@ -70,7 +70,7 @@ if(isset($_POST["valorBusqueda"]))
         
         <br>
         <br />
-        <input type="submit" value="Modificar">
+        <input type="submit" value="Continuar">
     </div>';
 }
  else

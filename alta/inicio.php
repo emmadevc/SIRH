@@ -91,7 +91,7 @@ function select() {
 <!-- InstanceBeginEditable name="menu" -->              
     <li><a href="../index.php">Salir</a></li>
     <li><a href="../inicio.php">Inicio</a></li>
-    <li><a href="historial/inicio.php">Historial de Altas y Bajas</a></li>
+    <li><a href="historial/inicio.php">Historial de Bajas</a></li>
 <!-- InstanceEndEditable -->
 			</ul>
 		</nav>

@@ -1,5 +1,5 @@
 <?php
-include ('../connections/conecta.php');
+include ('../../connections/conecta.php');
 $conexion = conectar_bd();
 
 if(isset($_POST["valorBusqueda"]))
@@ -15,8 +15,8 @@ if(isset($_POST["valorBusqueda"]))
     
     $result= mysqli_query($conexion, $query);
 
-     echo '<br>
-        <label>&nbsp;Área destino: </label>
+     echo '
+        <label>&nbsp;Área: </label>
         <select name="area_d" id="area_d" required>
         <option value="">Elige una opción</option>
             ';
@@ -26,7 +26,8 @@ if(isset($_POST["valorBusqueda"]))
                     }    
            echo '
           
-        </select>';
+        </select>
+        <br><br>';
  }
 
 

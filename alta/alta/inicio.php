@@ -1,10 +1,17 @@
-<?php 
-session_start();
-if(isset($_SESSION['level'])){
-
-if($_SESSION['level']==2||$_SESSION['level']=1){
+<?php
+date_default_timezone_set('America/Mexico_City');
 include ('../../connections/conecta.php');
+$conexion = conectar_bd();
+$query="SELECT * FROM cat_puesto GROUP BY direccion";
+$query1="SELECT * FROM quincena ";
+$query2="SELECT * FROM cat_alta";
+$query3="SELECT * FROM nomina WHERE id_empleado=''";
+$result= mysqli_query($conexion, $query);
+$result1= mysqli_query($conexion, $query1);
+$result2= mysqli_query($conexion, $query2);
+$result3= mysqli_query($conexion, $query3);
 ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/Plantilla_General_Menu.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
@@ -96,7 +103,7 @@ function select() {
 <!-- InstanceBeginEditable name="menu" -->              
     <li><a href="../../logout.php">Salir</a></li>
     <li><a href="../../inicio.php">Inicio</a></li>
-    <li><a href="../historial/inicio.php">Historial de Cambios</a></li>
+    <li><a href="historial/inicio.php">Historial de Altas</a></li>
 <!-- InstanceEndEditable -->
 			</ul>
 		</nav>
@@ -112,27 +119,105 @@ function select() {
 <!--
 <img src="Imagenes/vut.png" width="200"  /> <br />
 -->
-<label class="titulo_centro_mediano">SISTEMA DE NÓMINAS</label>
+<label class="titulo_centro_mediano">ALTAS</label>
 <br />
-    <div id="cuadro_captura_grande">
-        <label>No. Empleado: </label>
-        <input name="search_num" id="search_num" type="text" size="10"/>
-        <input name="bus" type="submit" class="" id="bus" value="Buscar" onclick="buscar();"/>
-<!--
-        <label>Nombre: </label>
-        <input name="search_name" id="search_name" type="text" size="15" />
-        <input name="bus" type="submit" class="" id="bus" value="Buscar" onclick="buscar_name();"/>
--->
-        <br>
-        <br />
-        
-    </div>
     
-<br />
+    
+
     <form action="cambiar_info.php" method="post">
-    <div id="place">
-        </div>
+    <div id="cuadro_captura_grande">
+    <label>No. Plaza: </label>
+        <input name="id_plaza" id="id_plaza" type="text" size="10" required/>
+        <label>No. Empleado: </label>
+        <input name="id_empleado" id="id_empleado" type="text" size="10" required/>
+        <label>&nbsp;Paterno: </label>
+        <input name="paterno" id="paterno" type="text" size="10" required/>
+        <br><br><label>&nbsp;Materno: </label>
+        <input name="materno" id="materno" type="text" size="10" required/>
+        <label>&nbsp;Nombre: </label>
+        <input name="nombre" id="nombre" type="text" size="10" required/>
+        <br><br><label>&nbsp;Tipo de Nómina: </label>
+        <select name="id_nomina" id="id_nomina" required>
+            <option selected>-</option>
+            <option value="1">1</option>
+            <option value="5">5</option>
+            <option value="8">8</option>
+        </select>
+        <label>&nbsp;Universo: </label>
+        <select name="id_universo" id="id_universo" required>
+            <option selected>-</option>
+            <option value="CJ">CJ</option>
+            <option value="G">G</option>
+            <option value="K">K</option>
+            <option value="L">L</option>
+            <option value="M">M</option>
+            <option value="O">O</option>
+            <option value="P">P</option>
+            <option value="PR">PR</option>
+            <option value="S">S</option>
+            <option value="T">T</option>
+        </select>
+        <label>&nbsp;Id Puesto: </label>
+        <input name="id_puesto" id="id_puesto" type="text" size="6" required/>
+        <br><br>
+        <label>&nbsp;Nombre del Puesto: </label>
+        <input name="n_puesto" id="n_puesto" type="text" size="25" required/>
+        <label>&nbsp;Sección Sindical: </label>
+        <input name="ss" id="ss" type="text" size="5" required/>
+        <br><br>
         
+        <label>&nbsp;Nivel Salarial: </label>
+        <input name="id_salarial" id="id_salarial" type="text" size="5" required/>
+        
+        <label>&nbsp;Dirección: </label>
+        <select name="direccion_d" id="direccion_d" onchange="select();" required>
+        <option default>Elige una opción</option>
+        <?php
+                while($row= mysqli_fetch_array($result)){
+      	         echo '
+                    <option value="'.$row['direccion'].'" >'.$row['direccion'].'</option>';
+                    }    
+        ?>  
+        </select>
+        <br><br>    
+        <div id="list_area"></div>
+
+
+        <label>&nbsp;Fecha de Ingreso: </label>
+        <input name="fecha_i" id="fecha_i" type="date" required value="<?php $fecha_baja = date("Y-m-d"); echo $fecha_baja ?>"/>
+
+        <br><br><label>&nbsp;Fecha de Inicio de Puesto: </label>
+        <input name="fecha_p" id="fecha_p" type="date" required value="<?php $fecha_baja = date("Y-m-d"); echo $fecha_baja ?>"/>
+
+        
+        <br><br><label>&nbsp;Quincena de aplicación: </label>
+        <select name="quincena" id="quincena" required>
+        <option value="">Elige una opción</option>
+        <?php
+                while($row1= mysqli_fetch_array($result1)){
+      	         echo '
+                    <option value="'.$row1['quincena'].'" >'.$row1['quincena'].'</option>';
+                    }    
+          ?>
+          
+        </select>
+
+        <br><br><label>&nbsp;Tipo de Alta: </label>
+        <select name="estatus" id="estatus" required>
+        <option value="">Elige una opción</option>
+   <?php
+                while($row2= mysqli_fetch_array($result2)){
+      	         echo '
+                    <option value="'.$row2['id_alta'].'" >'.$row2['descripcion'].'</option>';
+                    }    
+          ?>
+          
+        </select>
+        
+        <br>
+        <br>
+        <input type="submit" value="Enviar">
+    </div>
         </form>
 <br />
 <br />
@@ -157,15 +242,3 @@ input.addEventListener("keyup", function(event) {
 </script>
 
 <!-- InstanceEnd --></html>
-<?php 
-}
-else{
-    echo "<script> 
-    window.location.replace('login.php'); </script>";
-}
-}
-else
-echo "<script> 
-window.location.replace('login.php'); </script>";
-
-?>
