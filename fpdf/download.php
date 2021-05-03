@@ -22,6 +22,7 @@ function Header()
     $this->Ln(20);
 
     $this->SetFont('Arial','B',5);
+    $this->Cell(7 ,10,'Id.',1,0,'C',0);
     $this->Cell(13 ,10,'No. Plaza',1,0,'C',0);
     $this->Cell(10 ,10,'Empleado',1,0,'C',0);
     $this->Cell(15 ,10,'A. Paterno',1,0,'C',0);
@@ -53,7 +54,9 @@ $pdf = new PDF('L','mm','A4');
 $pdf->AliasNbPages();
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',5);
+$count=0;
 while($row= mysqli_fetch_array($result)){
+    $pdf->Cell(7 ,10,utf8_decode($count),1,0,'C',0);
     $pdf->Cell(13 ,10,utf8_decode($row['id_plaza']),1,0,'C',0);
     $pdf->Cell(10 ,10,utf8_decode($row['id_empleado']),1,0,'C',0);
     $pdf->Cell(15 ,10,utf8_decode($row['a_paterno']),1,0,'C',0);
@@ -67,6 +70,8 @@ while($row= mysqli_fetch_array($result)){
     $pdf->Cell(7 ,10,utf8_decode($row['id_sindicato']),1,0,'C',0);
     $pdf->Cell(100 ,10,utf8_decode($row['area']),1,0,'C',0);
     $pdf->Cell(20 ,10,utf8_decode($row['direccion']),1,1,'C',0);
+    $count++;
 }
+
 $pdf->Output();
 ?>
