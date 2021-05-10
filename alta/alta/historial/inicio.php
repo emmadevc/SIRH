@@ -27,7 +27,7 @@ $conexion = conectar_bd();
 
 <!-- InstanceBeginEditable name="doctitle" -->
 
-<title>SISNOM</title>
+<title>SIRH</title>
 <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Roboto">
 <!-- InstanceEndEditable -->
 <link rel="shortcut icon"href="../../../Imagenes/lvc.ico"/>
@@ -93,6 +93,7 @@ function buscar_universo() {
         $("#place").html();
         };
 };
+
 </script>
                     
 <!-- InstanceBeginEditable name="head" -->
@@ -217,7 +218,7 @@ function buscar_universo() {
     while($row= mysqli_fetch_array($result)){
       	echo '
         <tr>
-        <td bgcolor="#CCCCCC"><a href=""><img src="borrar.png"></a></td>
+        <td bgcolor="#CCCCCC"><a class="eliminar" href="eliminar.php?id='.$row['id'].'"><img width=30% src="../../../Imagenes/iconos/cross.png"></a></td>
         <td bgcolor="#CCCCCC">'.$row['id_empleado'].'</td>
       <td>'.$row['a_paterno'].'</td>
       <td>'.$row['a_materno'].'</td>
@@ -275,5 +276,7 @@ input.addEventListener("keyup", function(event) {
   }
 });
 </script>
+<script src="../../../js/confirmacion.js"></script>
+
 
 <!-- InstanceEnd --></html>

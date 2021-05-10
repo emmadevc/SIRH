@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../connections/conecta.php';
 $conexion = conectar_bd();
 
@@ -16,7 +17,6 @@ if($user != NULL && $pass != NULL)
     {
         if($row['level']==2||$row['level']==1)
         {
-        session_start();
            $_SESSION['id']=$row['id'];
            $_SESSION['level']=$row['level'];
            echo "<script> window.location.replace('inicio.php'); </script>";
@@ -33,5 +33,5 @@ if($user != NULL && $pass != NULL)
            window.alert('Usuario o contraseña incorrectos');
            window.location.replace('login.php'); </script>";
 }
- 
+
 ?>

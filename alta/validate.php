@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../connections/conecta.php';
 $conexion = conectar_bd();
 
@@ -12,15 +13,25 @@ if($user != NULL && $pass != NULL)
     $result= mysqli_query($conexion, $query);
     $row = mysqli_fetch_array($result);
     
- if($row)
- {
-     echo "<script> window.location.replace('inicio.php'); </script>";
-     $_SESSION['id_user'];
- }
-    else 
-        "<script> 
-        window.alert('Usuario o contraseña incorrectos');
-        window.location.replace('../inicio.php'); </script>";
+    if($row)
+    {
+        if($row['level']==2||$row['level']==1)
+        {
+           $_SESSION['id']=$row['id'];
+           $_SESSION['level']=$row['level'];
+           echo "<script> window.location.replace('inicio.php'); </script>";
+           
+
+        }
+       else 
+           echo "<script> 
+           window.alert('No tienes permiso para acceder');
+           window.location.replace('login.php'); </script>";
+    }
+       else 
+           echo "<script> 
+           window.alert('Usuario o contraseña incorrectos');
+           window.location.replace('login.php'); </script>";
 }
- 
+
 ?>

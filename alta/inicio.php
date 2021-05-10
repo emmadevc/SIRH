@@ -1,4 +1,10 @@
+<?php 
+session_start();
+if(isset($_SESSION['level'])){
 
+if($_SESSION['level']==2||$_SESSION['level']==1){
+include ('../connections/conecta.php');
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/Plantilla_General_Menu.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
@@ -9,7 +15,7 @@
 
 <!-- InstanceBeginEditable name="doctitle" -->
 
-<title>SISNOM</title>
+<title>SIRH</title>
 <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Roboto">
 <!-- InstanceEndEditable -->
 <link rel="shortcut icon"href="../Imagenes/lvc.ico"/>
@@ -89,7 +95,7 @@ function select() {
 		<nav>
 			<ul>
 <!-- InstanceBeginEditable name="menu" -->              
-    <li><a href="../index.php">Salir</a></li>
+    <li><a href="../logout.php">Salir</a></li>
     <li><a href="../inicio.php">Inicio</a></li>
     <li><a href="historial/inicio.php">Historial de Bajas</a></li>
 <!-- InstanceEndEditable -->
@@ -152,3 +158,15 @@ input.addEventListener("keyup", function(event) {
 </script>
 
 <!-- InstanceEnd --></html>
+<?php 
+}
+else{
+    echo "<script> 
+    window.location.replace('login.php'); </script>";
+}
+}
+else
+echo "<script> 
+window.location.replace('login.php'); </script>";
+
+?>

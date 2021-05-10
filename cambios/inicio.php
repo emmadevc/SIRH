@@ -2,7 +2,7 @@
 session_start();
 if(isset($_SESSION['level'])){
 
-if($_SESSION['level']==2||$_SESSION['level']=1){
+if($_SESSION['level']==2||$_SESSION['level']==1){
 include ('../connections/conecta.php');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -15,7 +15,7 @@ include ('../connections/conecta.php');
 
 <!-- InstanceBeginEditable name="doctitle" -->
 
-<title>SISNOM</title>
+<title>SIRH</title>
 <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Roboto">
 <!-- InstanceEndEditable -->
 <link rel="shortcut icon"href="../Imagenes/lvc.ico"/>

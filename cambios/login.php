@@ -1,3 +1,10 @@
+<?php
+session_start();
+if($_SESSION&&($_SESSION['level']==2||$_SESSION['level']==1)){
+    echo "<script> window.location.replace('inicio.php'); </script>";
+}
+else{
+    ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/Plantilla_General_Menu.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
@@ -8,7 +15,7 @@
 
 <!-- InstanceBeginEditable name="doctitle" -->
 
-<title>SISNOM</title>
+<title>SIRH</title>
 <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Roboto">
 <!-- InstanceEndEditable -->
 <link rel="shortcut icon"href="../Imagenes/lvc.ico"/>
@@ -39,7 +46,7 @@
 		<nav>
 			<ul>
 <!-- InstanceBeginEditable name="menu" -->              
-    <li><a href="inicio.php">Inicio</a></li>
+    <li><a href="../inicio.php">Inicio</a></li>
 <!-- InstanceEndEditable -->
 			</ul>
 		</nav>
@@ -83,3 +90,6 @@
 </div>
 </body>
 <!-- InstanceEnd --></html>
+<?php
+}
+?>

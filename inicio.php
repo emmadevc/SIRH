@@ -28,7 +28,7 @@ $result1= mysqli_query($conexion, $query1);
 
 <!-- InstanceBeginEditable name="doctitle" -->
 
-<title>SISNOM</title>
+<title>SIRH</title>
 <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Roboto">
 <!-- InstanceEndEditable -->
 <link rel="shortcut icon"href="Imagenes/lvc.ico"/>
@@ -140,7 +140,7 @@ function buscar_universo() {
 <!--
 <img src="Imagenes/vut.png" width="200"  /> <br />
 -->
-<label class="titulo_centro_mediano">SISTEMA DE NÓMINAS | AVC </label>
+<label class="titulo_centro_mediano">SISTEMA INTEGRAL DE RECURSOS HUMANOS | AVC </label>
 <br />
     <div id="cuadro_captura_grande">
         <label>No. Empleado: </label>
@@ -228,7 +228,7 @@ function buscar_universo() {
 
         
         $inicio= ($_GET['pagina']-1)*$art_pag;
-        $query_limit="SELECT * FROM nomina ORDER BY id_empleado ASC LIMIT ".$inicio.",".$art_pag."";
+        $query_limit="SELECT * FROM nomina ORDER BY cve, cvo LIMIT ".$inicio.",".$art_pag."";
         $result_limit= mysqli_query($conexion, $query_limit);
 
     while($row_limit= mysqli_fetch_array($result_limit)){

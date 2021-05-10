@@ -2,7 +2,7 @@
 require('html_table.php');
 include ('../connections/conecta.php');
 $conexion = conectar_bd();
-$query="SELECT * FROM nomina WHERE direccion = '".$_GET['id']."' ORDER BY id_empleado ASC";
+$query="SELECT * FROM nomina WHERE direccion = '".$_GET['id']."' ORDER BY cve, cvo";
 $result= mysqli_query($conexion, $query);
 $query1="SELECT * FROM nomina WHERE id_universo = 's' AND direccion = '".$_GET['id']."'";
 $result1= mysqli_query($conexion, $query1);
@@ -55,17 +55,17 @@ while($row= mysqli_fetch_array($result)){
     $count++;
 }
 $pdf->Ln(20);
-$pdf->Cell(85 ,5,utf8_decode("_______________________________________________________________\n".$row1['area']." \n".$row1['nombre']." ".$row1['a_paterno']." ".$row1['a_materno']." "),0,0,'C',0);
-$pdf->Cell(85 ,5,utf8_decode("_______________________________________________________________\n".$row2['area']." \n".$row2['nombre']." ".$row2['a_paterno']." ".$row2['a_materno']." "),0,0,'C',0);
+$pdf->Cell(85 ,5,utf8_decode("_______________________________________________________________\n".$row1['area']." \n".$row1['nombre']." ".$row1['a_paterno']." ".$row1['a_materno']." \nConocimiento"),0,0,'C',0);
+$pdf->Cell(85 ,5,utf8_decode("_______________________________________________________________\n".$row2['area']." \n".$row2['nombre']." ".$row2['a_paterno']." ".$row2['a_materno']." \nValidación"),0,0,'C',0);
 $contador=0;
 while($row3= mysqli_fetch_array($result3)){
     
     if($contador==0 || ($contador % 3 == 0)){
-        $pdf->Cell(85 ,5,utf8_decode("_______________________________________________________________\n".$row3['area']." \n".$row3['nombre']." ".$row3['a_paterno']." ".$row3['a_materno']." "),0,1,'C',0);
+        $pdf->Cell(85 ,5,utf8_decode("_______________________________________________________________\n".$row3['area']." \n".$row3['nombre']." ".$row3['a_paterno']." ".$row3['a_materno']." \nVo.Bo."),0,1,'C',0);
         $pdf->Ln(20);
     }
     else{
-        $pdf->Cell(85 ,5,utf8_decode("_______________________________________________________________\n".$row3['area']." \n".$row3['nombre']." ".$row3['a_paterno']." ".$row3['a_materno']." "),0,0,'C',0);
+        $pdf->Cell(85 ,5,utf8_decode("_______________________________________________________________\n".$row3['area']." \n".$row3['nombre']." ".$row3['a_paterno']." ".$row3['a_materno']." \nVo.Bo."),0,0,'C',0);
     }
     $contador++;
 }

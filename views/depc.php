@@ -26,7 +26,7 @@ $conexion = conectar_bd();
 
 <!-- InstanceBeginEditable name="doctitle" -->
 
-<title>SISNOM</title>
+<title>SIRH</title>
 <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Roboto">
 <!-- InstanceEndEditable -->
 <link rel="shortcut icon"href="../Imagenes/lvc.ico"/>
@@ -117,8 +117,9 @@ function buscar_universo() {
 			<a href="#" class="bt-menu"><span class="icon-menu"></span></a>
 		</div>
 		<nav>
-			<ul>
-<!-- InstanceBeginEditable name="menu" -->              
+    <ul>
+<!-- InstanceBeginEditable name="menu" -->    
+<li><a href="../inicio.php">Inicio</a></li>
 <!-- InstanceEndEditable -->
 			</ul>
 		</nav>
@@ -199,8 +200,10 @@ function buscar_universo() {
       <a class="page-link" href="depc.php?pagina=<?php echo $paginas ?>">Fin</a>
     </li>
   </ul>
+  Total de Personal: <?php echo $count; ?>
+<br>
   <a href="../fpdf/download.php?id=DEPC">Descargar Plantilla</a>
-
+  <br>
         Página <?php echo $_GET['pagina']." de ".$paginas ?>
 </nav>
 <table class="header">
@@ -225,7 +228,7 @@ function buscar_universo() {
 
         
         $inicio= ($_GET['pagina']-1)*$art_pag;
-        $query_limit="SELECT * FROM nomina WHERE direccion = 'depc' ORDER BY id_empleado ASC LIMIT ".$inicio.",".$art_pag."";
+        $query_limit="SELECT * FROM nomina WHERE direccion = 'depc' ORDER BY cve, cvo LIMIT ".$inicio.",".$art_pag."";
         $result_limit= mysqli_query($conexion, $query_limit);
 
     while($row_limit= mysqli_fetch_array($result_limit)){
