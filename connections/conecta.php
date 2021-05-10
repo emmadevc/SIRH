@@ -1,9 +1,9 @@
 <?php
 function conectar_bd(){
-$server='10.42.0.222';
-$bd='sisnom_n_prueba';    
+$server='localhost';
+$bd='bd';    
 $usuario='root';
-$password ='pgm3satvc';
+$password ='';
 $conexion= mysqli_connect($server, $usuario, $password, $bd);
 mysqli_set_charset($conexion, "utf8");
 
